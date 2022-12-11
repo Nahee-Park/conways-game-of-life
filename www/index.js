@@ -20,7 +20,7 @@ const ctx = canvas.getContext('2d');
 
 const renderLoop = () => {
   universe.tick();
-  debugger;
+  // debugger;
 
   drawGrid();
   drawCells();

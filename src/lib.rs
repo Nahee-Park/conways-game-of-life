@@ -70,7 +70,7 @@ impl Universe {
                 // It circulates all cells now and calculates how many surrounding cells are alive
                 let live_neighbors = self.live_neighbor_count(row, col);
 
-                log!("cell has {} live neighbors", live_neighbors);
+                // log!("cell has {} live neighbors", live_neighbors);
 
                 let next_cell = match (cell, live_neighbors) {
                     // 1. Any live cell with fewer than two live neighbours dies, as if by underpopulation.
