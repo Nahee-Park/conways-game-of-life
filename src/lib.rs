@@ -1,13 +1,11 @@
 mod utils;
 use wasm_bindgen::prelude::*;
 
-
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
 // allocator.
 #[cfg(feature = "wee_alloc")]
 #[global_allocator]
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
-
 
 extern crate web_sys;
 
@@ -71,6 +69,7 @@ impl Universe {
                 let cell = self.cells[idx];
                 // It circulates all cells now and calculates how many surrounding cells are alive
                 let live_neighbors = self.live_neighbor_count(row, col);
+
                 log!("cell has {} live neighbors", live_neighbors);
 
                 let next_cell = match (cell, live_neighbors) {
@@ -88,6 +87,7 @@ impl Universe {
                 next[idx] = next_cell;
             }
         }
+        self.cells = next;
     }
 
     // constructor
